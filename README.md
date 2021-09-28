@@ -1,6 +1,6 @@
 # 1GitGud1.github.io
 
-_layouts
+## _layouts
 a library that containts the templates that jerkyl can use to auto generate web pages
 
 
