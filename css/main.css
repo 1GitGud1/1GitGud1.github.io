@@ -8,6 +8,11 @@ h1 {
   font-size: 3em;
   font-family:'Helvetica', 'Arial', 'Sans-Serif';
   color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 p {
