@@ -8,14 +8,14 @@ h1 {
   font-size: 3em;
   font-family:'Helvetica', 'Arial', 'Sans-Serif';
   color: white;
-  text-shadow: 2px 2px 0px #FFFFFF;
+  text-shadow: 2px 2px 0px #000000;
 }
 
 p {
   font-size: 1.5em;
   line-height: 1.4em;
   color: white;
-  text-shadow: 2px 2px 0px #FFFFFF;
+  text-shadow: 2px 2px 0px #000000;
 }
 
 footer {
