@@ -23,7 +23,7 @@ a library that includes the index file which contains the code for generation of
 
 
 ## blog
-a library that includes the index file which contains the code for generation of the blog page from which you can view all of the blog posts available from the _posts library.
+a library that includes the index file which contains the code for generation of the blog page from which you can view all of the blog posts available from the _posts library. it does this by reading all the files from the _posts library using a for loop.
 
 
 ## css
