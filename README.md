@@ -35,4 +35,4 @@ a file that's used to denote how the website's url is structured. in this case, 
 
 
 ## index.html
-a code file that's used to generate the home page of the website which contains layout, title and layout. it uses the default layout to auto generate the page with jerkyl.
+a code file that's used to generate the home page of the website which contains layout, title and content. it uses the default layout to auto generate the page with jerkyl.
