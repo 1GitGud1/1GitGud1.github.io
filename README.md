@@ -27,4 +27,12 @@ a library that includes the index file which contains the code for generation of
 
 
 ## css
-a library that contains main.css stylesheet that's used in presentation of all of the webpages
+a library that contains main.css stylesheet that's used in presentation of all of the webpages. the stylesheet is used to define how the webpage is presented (e.g. font styles, padding, margins).
+
+
+## _config.yml
+a file that's used to denote how the website's url is structured. in this case, the blogs' url will be displayed in this format: /blog/:year/:month/:day/:title.
+
+
+## index.html
+a code file that's used to generate the home page of the website which contains layout, title and layout. it uses the default layout to auto generate the page with jerkyl.
