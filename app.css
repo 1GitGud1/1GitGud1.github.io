@@ -1,0 +1,177 @@
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    color: #0ac839;
+}
+
+p {
+    color: #0ac839;
+}
+
+body {
+    margin:0;
+    background-color: #040F16;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    height: 3rem;
+}
+
+.intro {
+    width: 50%;
+    margin: auto;
+    margin-top: 25vh;
+    
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    margin-top: 15vh;
+    padding-top: 10vh;
+    
+}
+
+.about-content {
+    display:flex;
+}
+
+.profile-pic {
+    color: #0ac839;
+    font-size: 15rem;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+
+.nav {
+    background-color: #040F16;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.contents {
+    display: flex;
+    align-items: center;
+}
+
+.contents a {
+    color: #0ac839;
+    text-decoration: none;
+    font-size: 150%;
+    margin: 15px 10px;
+}
+
+.social-media-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-media-icons a {
+    color: #0ac839;
+    font-size: 2rem;
+    margin: 0px 10px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
+    margin-top: 15vh;
+    padding-top: 10vh;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10vh;
+    
+}
+
+.project-thumbnail {
+    
+    width: 60%;
+    
+    margin-right: auto;
+    margin-bottom: auto;
+    /*border: 1px solid #0ac839;*/
+}
+
+.project-thumbnail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-description {
+    width: 35%;
+    
+    /*border: 1px solid #0ac839;*/
+}
+
+.project-description p {
+    color:#88A0A8; 
+    font-size:125%;
+}
+
+.project-description a {
+    color: #0ac839;
+    text-decoration: none;
+}
+
+.description-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.description-tags p {
+    background-color: #1E1E24;
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.project-description ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+.project-description li:before { 
+    content: "+";
+    padding-right: 5px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh;
+    
+}
+
+.contact p {
+    color:#88A0A8;
+    font-size: 125%;
+    width: 600px;
+    text-align: center;
+}
