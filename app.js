@@ -26,7 +26,7 @@
                         document.querySelector(".typed-cursor").remove();
                         new Typed('#element4', {
                             strings: ["I'm an inquisitive software engineer with a passion for game programming and design."],
-                            typeSpeed: 0,
+                            typeSpeed: -100,
                         });
                     },
                 });
