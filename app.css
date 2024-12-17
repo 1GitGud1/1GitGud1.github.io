@@ -10,6 +10,8 @@ p {
     color: #0ac839;
 }
 
+
+
 body {
     margin:0;
     background-color: #040F16;
@@ -27,7 +29,8 @@ header {
 .intro {
     width: 50%;
     margin: auto;
-    margin-top: 25vh;
+    margin-top: 30vh;
+    height: 400px;
     
 }
 
@@ -61,6 +64,12 @@ header {
     width: 100%;
     
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.nav--hidden {
+    transform: translateY(-50px);
+    box-shadow: none;
 }
 
 .contents {
