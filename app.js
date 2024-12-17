@@ -9,31 +9,24 @@
     
 
     var typedInstance = new Typed('#element', {
-    // Waits 1000ms after typing "First"
     strings: ["Hi! ^2000 I'm"],
-    typeSpeed: 50,
-    startDelay: 2000,
+    typeSpeed: 25,
+    startDelay: 1000,
     onComplete() {
         document.querySelector(".typed-cursor").remove();
         new Typed('#element2', {
-            // Waits 1000ms after typing "First"
             strings: ["Isa"],
             typeSpeed: 25,
             onComplete() {
                 document.querySelector(".typed-cursor").remove();
                 new Typed('#element3', {
-                    // Waits 1000ms after typing "First"
-                    strings: ["Isaev."],
+                    strings: ["Isaev.^2000"],
                     typeSpeed: 25,
                     onComplete() {
                         document.querySelector(".typed-cursor").remove();
                         new Typed('#element4', {
-                            // Waits 1000ms after typing "First"
                             strings: ["I'm an inquisitive software engineer with a passion for game programming and design."],
-                            typeSpeed: 10,
-                            onComplete() {
-                                
-                            },
+                            typeSpeed: 0,
                         });
                     },
                 });
