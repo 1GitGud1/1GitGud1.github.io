@@ -1,4 +1,4 @@
-// enable hidden nav bar
+// letter flicker effect will occur to elements currently on screen
 {
     function replaceCharAtID(id, index, char) {
         const textInDocument = document.querySelector(id);
@@ -48,4 +48,57 @@
 
         lastScrollY = window.scrollY;
     });
+
+    //elements hidden before scrolled to
+    const aboutElement = document.querySelector('#about');
+    const project1Element = document.querySelector('#projects');
+    const project2Element = document.querySelector('#projects');
+    const contactElement = document.querySelector('#projects');
+
+    // Define the options for the Intersection Observer
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    // Create a new Intersection Observer
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+        // If element is in viewport, add the 'show' class to trigger the animation
+        if (entry.isIntersecting && entry.target == aboutElement) {
+            document.querySelector(".typed-cursor").remove();
+            new Typed('#about-title', {
+                strings: ["About Me"],
+                typeSpeed: -100,
+                onComplete() {
+                    document.querySelector(".profile-pic").classList.add("shown");
+                    document.querySelector(".typed-cursor").remove();
+                    new Typed('#about-p1', {
+                        strings: ["Hello, Isa here. I'm an aspiring gameplay programmer and a game designer. I've been coding since I was 12 when I recreated a ping pong game in Python. Recently graduated with a high-distinction Computer Science degree, a track record in application development and a versitile skill set in programming languages including C++/C#, Python, JavaScript, and Java."],
+                        typeSpeed: -100,
+                        showCursor: true,
+                        onComplete() {
+                            document.querySelector(".typed-cursor").remove();
+                            new Typed('#about-p2', {
+                                strings: ["Outside of my professional life, I am a professional Jiu-Jitsu athlete. Some of my accomplishments I'm proud to share include winning UAE Jiu-Jitsu Federation Professional World Championships and achieving the title Master of Sport of Russia. I'm also known to be an exceptional DnD dungeon master."],
+                                typeSpeed: -100,
+                                onComplete() {
+                                    
+                                },
+                            });
+                        },
+                    });
+                },
+            });
+            observer.unobserve(entry.target);
+        }
+        else if (entry.isIntersecting && entry.target == project1Element) {
+
+        }
+        });
+    }, options);
+
+    // Start observing the element
+    observer.observe(aboutElement);
 }
