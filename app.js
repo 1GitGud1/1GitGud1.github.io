@@ -62,12 +62,8 @@
         threshold: 0.5
     };
 
-    // Create a new Intersection Observer
-    const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-        // If element is in viewport, add the 'show' class to trigger the animation
-        if (entry.isIntersecting && entry.target == aboutElement) {
-            document.querySelector(".typed-cursor").remove();
+    function loadAboutElement(target) {
+        document.querySelector(".typed-cursor").remove();
             new Typed('#about-title', {
                 strings: ["About Me"],
                 typeSpeed: -100,
@@ -91,13 +87,20 @@
                     });
                 },
             });
-            observer.unobserve(entry.target);
-        }
-        else if (entry.isIntersecting && entry.target == project1Element) {
+    }
 
-        }
+    // Create a new Intersection Observer
+    const observer = new IntersectionObserver(callbackFunction, options);
+
+    function callbackFunction(entries) {
+        entries.forEach(entry => {
+            let target = entry.target;
+            if (entry.isIntersecting && target.dataset.callback) {
+                window[target.dataset.callback](target);
+                observer.unobserve(entry.target);
+            }
         });
-    }, options);
+    }
 
     // Start observing the element
     observer.observe(aboutElement);
