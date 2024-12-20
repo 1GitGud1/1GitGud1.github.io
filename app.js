@@ -20,7 +20,7 @@
             onComplete() {
                 document.querySelector(".typed-cursor").remove();
                 new Typed('#element3', {
-                    strings: ["Isaev.^2000"],
+                    strings: ["Isaev.^1000"],
                     typeSpeed: 25,
                     onComplete() {
                         document.querySelector(".typed-cursor").remove();
@@ -67,21 +67,18 @@
         new Typed('#about-title', {
             strings: ["About Me"],
             typeSpeed: -100,
+            showCursor: false,
             onComplete() {
                 document.querySelector(".profile-pic").classList.add("shown");
-                document.querySelector(".typed-cursor").remove();
                 new Typed('#about-p1', {
                     strings: ["Hello, Isa here. I'm an aspiring gameplay programmer and a game designer. I've been coding since I was 12 when I recreated a ping pong game in Python. Recently graduated with a high-distinction Computer Science degree, a track record in application development and a versitile skill set in programming languages including C++/C#, Python, JavaScript, and Java."],
                     typeSpeed: -100,
-                    showCursor: true,
+                    showCursor: false,
                     onComplete() {
-                        document.querySelector(".typed-cursor").remove();
                         new Typed('#about-p2', {
                             strings: ["Outside of my professional life, I am a professional Jiu-Jitsu athlete. Some of my accomplishments I'm proud to share include winning UAE Jiu-Jitsu Federation Professional World Championships and achieving the title Master of Sport of Russia. I'm also known to be an exceptional DnD dungeon master."],
                             typeSpeed: -100,
-                            onComplete() {
-                                
-                            },
+                            showCursor: false,
                         });
                     },
                 });
@@ -90,27 +87,27 @@
     }
 
     function loadProject1Element(target) {
-        document.querySelector(".typed-cursor").remove();
         new Typed('#projects-title', {
             strings: ["Projects"],
             typeSpeed: -100,
+            showCursor: false,
             onComplete() {
-                document.querySelector(".typed-cursor").remove();
                 document.querySelector("#project1-thumbnail").classList.add("shown");
                 new Typed('#project1-title', {
                     strings: ["RPGDungeon"],
                     typeSpeed: -100,
+                    showCursor: false,
                     onComplete() {
-                        document.querySelector(".typed-cursor").remove();
                         document.querySelector("#project1-tags").classList.add("shown");
                         new Typed('#project1-description', {
                             strings: ["A 2D RPG platformer that I'm currently working on using Unity."],
                             typeSpeed: -100,
+                            showCursor: false,
                             onComplete() {
-                                document.querySelector(".typed-cursor").remove();
                                 new Typed('#project1-highlights', {
                                     strings: ["Highlights:"],
                                     typeSpeed: -100,
+                                    showCursor: false,
                                     onComplete() {
                                         new Typed('#project1-highlight1', {
                                             strings: ["+ Inventory System"],
@@ -161,24 +158,23 @@
     }
 
     function loadProject2Element(target) {
-        document.querySelector(".typed-cursor").remove();
         document.querySelector("#project2-thumbnail").classList.add("shown");
         new Typed('#project2-title', {
             strings: ["Foenix"],
             typeSpeed: -100,
+            showCursor: false,
             onComplete() {
-                document.querySelector(".typed-cursor").remove();
                 document.querySelector("#project2-tags").classList.add("shown");
                 new Typed('#project2-description', {
                     strings: ["Collaboratively developed a web platform that allows users to organize, annotate, share, and create ideas together. The platform features teleconferencing functionalities, office suites with simultaneous content editing, and social tools for creating and managing communities."],
                     typeSpeed: -100,
+                    showCursor: false,
                     onComplete() {
-                        document.querySelector(".typed-cursor").remove();
                         new Typed('#project2-highlights', {
                             strings: ["Contributions:"],
                             typeSpeed: -100,
+                            showCursor: false,
                             onComplete() {
-                                document.querySelector(".typed-cursor").remove();
                                 new Typed('#project2-highlight1', {
                                     strings: ["+ Front-end development using JavaScript"],
                                     typeSpeed: -100,
@@ -216,20 +212,20 @@
     }
 
     function loadContactElement(target) {
-        document.querySelector(".typed-cursor").remove();
         new Typed('#contact-title', {
             strings: ["Contact Me"],
             typeSpeed: -100,
+            showCursor: false,
             onComplete() {
-                document.querySelector(".typed-cursor").remove();
                 new Typed('#contact-element1', {
                     strings: ["I'm currently open to new and exciting opportunities. So if you're trying to reach me for whatever reason, you can do so here:"],
                     typeSpeed: -100,
+                    showCursor: false,
                     onComplete() {
-                        document.querySelector(".typed-cursor").remove();
                         new Typed('#contact-element2', {
                             strings: ["isaisaev.ru@gmail.com"],
                             typeSpeed: -100,
+                            showCursor: false,
                             onComplete() {
                                 document.querySelector(".contact-social-media-icons").classList.add("shown");
                             },
