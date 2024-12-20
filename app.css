@@ -60,11 +60,6 @@ header {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.shown {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .nav {
     background-color: #040F16;
     display: flex;
@@ -130,6 +125,10 @@ header {
     margin-right: auto;
     margin-bottom: auto;
     /*border: 1px solid #0ac839;*/
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .project-thumbnail img{
@@ -149,6 +148,12 @@ header {
     font-size:125%;
 }
 
+.project-readmore {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0s ease-out, transform 0s ease-out;
+}
+
 .project-description a {
     color: #0ac839;
     text-decoration: none;
@@ -157,6 +162,10 @@ header {
 .description-tags {
     display: flex;
     flex-wrap: wrap;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .description-tags p {
@@ -175,10 +184,12 @@ header {
     text-indent: -1em;
 }
 
+/*
 .project-description li:before { 
     content: "+";
     padding-right: 5px;
 }
+*/
 
 .contact {
     display: flex;
@@ -186,11 +197,30 @@ header {
     align-items: center;
     margin-top: 15vh;
     
+    min-height: 260px;
 }
+
 
 .contact p {
     color:#88A0A8;
     font-size: 125%;
     width: 600px;
     text-align: center;
+}
+
+.contact-social-media-icons {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.contact-social-media-icons a {
+    color: #0ac839;
+    font-size: 2rem;
+    margin: 0px 10px;
+}
+
+.shown {
+    opacity: 1;
+    transform: translateY(0);
 }

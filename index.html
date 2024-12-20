@@ -53,55 +53,54 @@
         </div>
 
         <div class="projects" id="projects">
-            <h1 style="font-size:300%;">Projects</h1>
-            <div class="project">
-                <div class="project-thumbnail">
+            <h1 style="font-size:300%;"><span id="projects-title"></span></h1>
+            <div class="project" id="project1" data-callback="loadProject1Element">
+                <div class="project-thumbnail" id="project1-thumbnail">
                     <img src="images/goblin thumbnail1.png" alt="Platformer Thumbnail">
                 </div>
                 <div class="project-description">
-                    <h1 style="line-height:0; margin-top:8px;">RPGDungeon</h1>
-                    <div class="description-tags"><p>Unity</p><p>C#</p><p>Gamedev</p></div>
-                    <p>A 2D RPG platformer that I'm currently working on using Unity.</p>
-                    <p>Highlights:</p>
+                    <h1 style="line-height:0; margin-top:8px;"><span id="project1-title"></span></h1>
+                    <div class="description-tags" id="project1-tags"><p>Unity</p><p>C#</p><p>GameDev</p></div>
+                    <p><span id="project1-description"></span></p>
+                    <p><span id="project1-highlights"></span></p>
                     <ul style="color:#88A0A8; font-size: 125%;">
-                        <li>Inventory System</li>
-                        <li>Platformer A* Pathfinding</li>
-                        <li>Combat System</li>
-                        <li>Finite State Machines</li>
-                        <li>Custom projectile physics</li>
-                        <li>Custom Shader with Stencil Buffer</li>
-                        <li>Custom pixel art for sprite sheets and animations</li>
+                        <li><span id="project1-highlight1"></span></li>
+                        <li><span id="project1-highlight2"></span></li>
+                        <li><span id="project1-highlight3"></span></li>
+                        <li><span id="project1-highlight4"></span></li>
+                        <li><span id="project1-highlight5"></span></li>
+                        <li><span id="project1-highlight6"></span></li>
+                        <li><span id="project1-highlight7"></span></li>
                     </ul>
-                    <a href="#projects">Read More</a>
+                    <div class="project-readmore" id="project1-readmore"><a href="#projects">Read More</a></div>
                 </div>
             </div>
-            <div class="project">
-                <div class="project-thumbnail">
+            <div class="project" id="project2" data-callback="loadProject2Element">
+                <div class="project-thumbnail" id="project2-thumbnail">
                     <img src="images/Capture.PNG" alt="web project">
                 </div>
                 <div class="project-description">
-                    <h1 style="line-height:0; margin-top:8px;">Foenix</h1>
-                    <div class="description-tags"><p>React</p><p>JavaScript</p><p>Front-End dev</p><p>University</p></div>
-                    <p>Collaboratively developed a web platform that allows users to organize, annotate, share, and create ideas together. The platform features teleconferencing functionalities, office suites with simultaneous 
-                        content editing, and social tools for creating and managing communities.</p>
-                    <p>Contributions:</p>
+                    <h1 style="line-height:0; margin-top:8px;"><span id="project2-title"></span></h1>
+                    <div class="description-tags" id="project2-tags"><p>React</p><p>JavaScript</p><p>Front-End dev</p><p>University</p></div>
+                    <p><span id="project2-description"></span></p>
+                    <p><span id="project2-highlights"></span></p>
                     <ul style="color:#88A0A8; font-size: 125%;">
-                        <li>Front-end development using JavaScript</li>
-                        <li>Worked using Scrum methodology</li>
-                        <li>Website Responsiveness</li>
-                        <li>User interface design</li>
-                        <li>Assistance in back-end systems</li>
+                        <li><span id="project2-highlight1"></span></li>
+                        <li><span id="project2-highlight2"></span></li>
+                        <li><span id="project2-highlight3"></span></li>
+                        <li><span id="project2-highlight4"></span></li>
+                        <li><span id="project2-highlight5"></span></li>
                     </ul>
-                    <a href="#projects">Read More</a>
+                    <div class="project-readmore" id="project2-readmore"><a href="#projects">Read More</a></div>
                 </div>
             </div>
         </div>
         
-        <div class="contact" id="contact">
-            <h1 style="font-size:300%;">Contact Me</h1>
-            <p>I'm currently open to new and exciting opportunities. So if you're trying to reach me for whatever reason, you can do so here:</p>
-            <p>isaisaev.ru@gmail.com</p>
-            <div class="social-media-icons">
+        <div class="contact" id="contact" data-callback="loadContactElement">
+            <h1 style="font-size:300%;"><span id="contact-title"></span></h1>
+            <p><span id="contact-element1"></span></p>
+            <p><span id="contact-element2"></span></p>
+            <div class="contact-social-media-icons">
                 <a href="https://github.com"><i class="bi bi-github"></i></a>
                 <a href="https://linkedin.com"><i class="bi bi-linkedin"></i></a>
                 <a href="https://youtube.com"><i class="bi bi-youtube"></i></a>
