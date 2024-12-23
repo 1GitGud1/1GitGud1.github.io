@@ -1,9 +1,20 @@
 // letter flicker effect will occur to elements currently on screen
 {
-    function replaceCharAtID(id, index, char) {
+    function glitchEffectAtID(id, interval) {
         const textInDocument = document.querySelector(id);
-        
-        textInDocument.textContent = textInDocument.textContent.substring(0, index) + char + textInDocument.textContent.substring(index + char.length);
+        setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * textInDocument.textContent.length)
+            const randomLetter = () => String.fromCharCode(33+(Math.floor(Math.random() * 94)));
+            const randomInterval = () => Math.floor(Math.random() * 1000);
+            const originalLetter = textInDocument.textContent.charAt(randomIndex);
+
+            textInDocument.textContent = textInDocument.textContent.substring(0, randomIndex) + randomLetter() + textInDocument.textContent.substring(randomIndex + 1);
+
+            /*wait a random amount before changing letter back*/
+    
+            setTimeout(() => { textInDocument.textContent = textInDocument.textContent.substring(0, randomIndex) + originalLetter + textInDocument.textContent.substring(randomIndex + 1); }, randomInterval());
+        }, interval);
+        /*textInDocument.textContent = textInDocument.textContent.substring(0, randomIndex) + chosenLetter + textInDocument.textContent.substring(randomIndex + char.length);*/
     }
 
     
@@ -13,20 +24,26 @@
     typeSpeed: 25,
     startDelay: 1000,
     onComplete() {
+        glitchEffectAtID("#element", 7000);
         document.querySelector(".typed-cursor").remove();
         new Typed('#element2', {
             strings: ["Isa"],
             typeSpeed: 25,
             onComplete() {
+                glitchEffectAtID("#element2", 7000);
                 document.querySelector(".typed-cursor").remove();
                 new Typed('#element3', {
                     strings: ["Isaev.^1000"],
                     typeSpeed: 25,
                     onComplete() {
+                        glitchEffectAtID("#element3", 7000);
                         document.querySelector(".typed-cursor").remove();
                         new Typed('#element4', {
                             strings: ["I'm an inquisitive software engineer with a passion for game programming and design."],
                             typeSpeed: -100,
+                            onComplete() {
+                                glitchEffectAtID("#element4", 2000);
+                            },
                         });
                     },
                 });
@@ -43,7 +60,7 @@
             nav.classList.add("nav--hidden");
         } else {
             nav.classList.remove("nav--hidden");
-            replaceCharAtID("#element2", 1, "a");
+            
         }
 
         lastScrollY = window.scrollY;
@@ -63,22 +80,27 @@
     };
 
     function loadAboutElement(target) {
-        document.querySelector(".typed-cursor").remove();
+        /*document.querySelector(".typed-cursor").remove();*/
         new Typed('#about-title', {
             strings: ["About Me"],
             typeSpeed: -100,
             showCursor: false,
             onComplete() {
+                glitchEffectAtID("#about-title", 5000);
                 document.querySelector(".profile-pic").classList.add("shown");
                 new Typed('#about-p1', {
                     strings: ["Hello, Isa here. I'm an aspiring gameplay programmer and a game designer. I've been coding since I was 12 when I recreated a ping pong game in Python. Recently graduated with a high-distinction Computer Science degree, a track record in application development and a versitile skill set in programming languages including C++/C#, Python, JavaScript, and Java."],
                     typeSpeed: -100,
                     showCursor: false,
                     onComplete() {
+                        glitchEffectAtID("#about-p1", 1000);
                         new Typed('#about-p2', {
                             strings: ["Outside of my professional life, I am a professional Jiu-Jitsu athlete. Some of my accomplishments I'm proud to share include winning UAE Jiu-Jitsu Federation Professional World Championships and achieving the title Master of Sport of Russia. I'm also known to be an exceptional DnD dungeon master."],
                             typeSpeed: -100,
                             showCursor: false,
+                            onComplete() {
+                                glitchEffectAtID("#about-p2", 1000);
+                            },
                         });
                     },
                 });
@@ -92,23 +114,27 @@
             typeSpeed: -100,
             showCursor: false,
             onComplete() {
+                glitchEffectAtID("#projects-title", 5000);
                 document.querySelector("#project1-thumbnail").classList.add("shown");
                 new Typed('#project1-title', {
                     strings: ["RPGDungeon"],
                     typeSpeed: -100,
                     showCursor: false,
                     onComplete() {
+                        glitchEffectAtID("#project1-title", 5000);
                         document.querySelector("#project1-tags").classList.add("shown");
                         new Typed('#project1-description', {
                             strings: ["A 2D RPG platformer that I'm currently working on using Unity."],
                             typeSpeed: -100,
                             showCursor: false,
                             onComplete() {
+                                glitchEffectAtID("#project1-description", 2000);
                                 new Typed('#project1-highlights', {
                                     strings: ["Highlights:"],
                                     typeSpeed: -100,
                                     showCursor: false,
                                     onComplete() {
+                                        glitchEffectAtID("#project1-highlights", 5000);
                                         new Typed('#project1-highlight1', {
                                             strings: ["+ Inventory System"],
                                             typeSpeed: -100,
@@ -164,17 +190,20 @@
             typeSpeed: -100,
             showCursor: false,
             onComplete() {
+                glitchEffectAtID("#project2-title", 5000);
                 document.querySelector("#project2-tags").classList.add("shown");
                 new Typed('#project2-description', {
                     strings: ["Collaboratively developed a web platform that allows users to organize, annotate, share, and create ideas together. The platform features teleconferencing functionalities, office suites with simultaneous content editing, and social tools for creating and managing communities."],
                     typeSpeed: -100,
                     showCursor: false,
                     onComplete() {
+                        glitchEffectAtID("#project2-description", 1000);
                         new Typed('#project2-highlights', {
                             strings: ["Contributions:"],
                             typeSpeed: -100,
                             showCursor: false,
                             onComplete() {
+                                glitchEffectAtID("#project2-highlights", 5000);
                                 new Typed('#project2-highlight1', {
                                     strings: ["+ Front-end development using JavaScript"],
                                     typeSpeed: -100,
@@ -217,11 +246,13 @@
             typeSpeed: -100,
             showCursor: false,
             onComplete() {
+                glitchEffectAtID("#contact-title", 5000);
                 new Typed('#contact-element1', {
                     strings: ["I'm currently open to new and exciting opportunities. So if you're trying to reach me for whatever reason, you can do so here:"],
                     typeSpeed: -100,
                     showCursor: false,
                     onComplete() {
+                        glitchEffectAtID("#contact-element1", 1000);
                         new Typed('#contact-element2', {
                             strings: ["isaisaev.ru@gmail.com"],
                             typeSpeed: -100,
