@@ -1,0 +1,15 @@
+body {
+    margin:0;
+    background-color: #040F16;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    color:#88A0A8;
+    font-size: 125%;
+    width: 600px;
+    text-align: center;
+}
