@@ -100,6 +100,7 @@
                             showCursor: false,
                             onComplete() {
                                 glitchEffectAtID("#about-p2", 1000);
+                                document.querySelector("#profile-pic-mobile").classList.add("shown");
                             },
                         });
                     },
