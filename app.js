@@ -123,6 +123,7 @@
                     onComplete() {
                         glitchEffectAtID("#project1-title", 5000);
                         document.querySelector("#project1-tags").classList.add("shown");
+                        document.querySelector("#project1-thumbnail-mobile").classList.add("shown");
                         new Typed('#project1-description', {
                             strings: ["A 2D RPG platformer that I'm currently working on using Unity."],
                             typeSpeed: -100,
@@ -192,6 +193,7 @@
             onComplete() {
                 glitchEffectAtID("#project2-title", 5000);
                 document.querySelector("#project2-tags").classList.add("shown");
+                document.querySelector("#project2-thumbnail-mobile").classList.add("shown");
                 new Typed('#project2-description', {
                     strings: ["Collaboratively developed a web platform that allows users to organize, annotate, share, and create ideas together. The platform features teleconferencing functionalities, office suites with simultaneous content editing, and social tools for creating and managing communities."],
                     typeSpeed: -100,
