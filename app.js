@@ -70,6 +70,7 @@
     const aboutElement = document.querySelector('#about');
     const project1Element = document.querySelector('#project1');
     const project2Element = document.querySelector('#project2');
+    const project3Element = document.querySelector('#project3');
     const contactElement = document.querySelector('#contact');
 
     // Define the options for the Intersection Observer
@@ -243,6 +244,64 @@
         });    
     }
 
+    function loadProject3Element(target) {
+        document.querySelector("#project3-thumbnail").classList.add("shown");
+        new Typed('#project3-title', {
+            strings: ["FPS Range"],
+            typeSpeed: -100,
+            showCursor: false,
+            onComplete() {
+                glitchEffectAtID("#project3-title", 5000);
+                document.querySelector("#project3-tags").classList.add("shown");
+                document.querySelector("#project3-thumbnail-mobile").classList.add("shown");
+                new Typed('#project3-description', {
+                    strings: ["A 3D FPS shooting range featuring an array of guns to try out and practice your aim. Developed as part of my Unreal Engine 5 learning objective."],
+                    typeSpeed: -100,
+                    showCursor: false,
+                    onComplete() {
+                        glitchEffectAtID("#project3-description", 1000);
+                        new Typed('#project3-highlights', {
+                            strings: ["Highlights:"],
+                            typeSpeed: -100,
+                            showCursor: false,
+                            onComplete() {
+                                glitchEffectAtID("#project3-highlights", 5000);
+                                new Typed('#project3-highlight1', {
+                                    strings: ["+ Custom character mesh and custom character animations"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project3-highlight2', {
+                                    strings: ["+ Dynamic crosshair and Aim down sights logic"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project3-highlight3', {
+                                    strings: ["+ Procedural recoil for different weapons"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project3-highlight4', {
+                                    strings: ["+ Bullet hole decals and Hit VFX"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project3-highlight5', {
+                                    strings: ["+ Custom firing range map"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                    onComplete() {
+                                        document.querySelector("#project3-readmore").classList.add("shown");
+                                    },
+                                });
+                            },
+                        });
+                    },
+                });
+            },
+        });    
+    }
+
     function loadContactElement(target) {
         new Typed('#contact-title', {
             strings: ["Contact Me"],
@@ -287,5 +346,6 @@
     observer.observe(aboutElement);
     observer.observe(project1Element);
     observer.observe(project2Element);
+    observer.observe(project3Element);
     observer.observe(contactElement);
 }
