@@ -316,7 +316,7 @@
                     onComplete() {
                         glitchEffectAtID("#contact-element1", 1000);
                         new Typed('#contact-element2', {
-                            strings: ["isaisaev.ru@gmail.com"],
+                            strings: ["isaisadev@gmail.com"],
                             typeSpeed: -100,
                             showCursor: false,
                             onComplete() {
