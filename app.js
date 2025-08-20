@@ -71,6 +71,7 @@
     const project1Element = document.querySelector('#project1');
     const project2Element = document.querySelector('#project2');
     const project3Element = document.querySelector('#project3');
+    const project4Element = document.querySelector('#project4');
     const contactElement = document.querySelector('#contact');
 
     // Define the options for the Intersection Observer
