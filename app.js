@@ -405,5 +405,6 @@
     observer.observe(project1Element);
     observer.observe(project2Element);
     observer.observe(project3Element);
+    observer.observe(project4Element);
     observer.observe(contactElement);
 }
