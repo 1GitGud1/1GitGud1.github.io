@@ -302,6 +302,64 @@
         });    
     }
 
+    function loadProject4Element(target) {
+        document.querySelector("#project4-thumbnail").classList.add("shown");
+        new Typed('#project4-title', {
+            strings: ["REM"],
+            typeSpeed: -100,
+            showCursor: false,
+            onComplete() {
+                glitchEffectAtID("#project4-title", 5000);
+                document.querySelector("#project4-tags").classList.add("shown");
+                document.querySelector("#project4-thumbnail-mobile").classList.add("shown");
+                new Typed('#project4-description', {
+                    strings: ["REM is a Real Estate Management application that is used to keep track of tenancy contracts, contractor payment deadlines, planned servicing for apartments and more tools to help with facilities management. Developed in .NET using a WinForms UI framework."],
+                    typeSpeed: -100,
+                    showCursor: false,
+                    onComplete() {
+                        glitchEffectAtID("#project4-description", 1000);
+                        new Typed('#project4-highlights', {
+                            strings: ["Highlights:"],
+                            typeSpeed: -100,
+                            showCursor: false,
+                            onComplete() {
+                                glitchEffectAtID("#project4-highlights", 5000);
+                                new Typed('#project4-highlight1', {
+                                    strings: ["+ Entity Framework Core"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project4-highlight2', {
+                                    strings: ["+ SQLite database for portability and offline functionality"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project4-highlight3', {
+                                    strings: ["+ Supports complex filtering, union operations, and sorting"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project4-highlight4', {
+                                    strings: ["+ Automated Alerts & Notifications"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                });
+                                new Typed('#project4-highlight5', {
+                                    strings: ["+ Comprehensive Building Management System"],
+                                    typeSpeed: -100,
+                                    showCursor: false,
+                                    onComplete() {
+                                        document.querySelector("#project4-readmore").classList.add("shown");
+                                    },
+                                });
+                            },
+                        });
+                    },
+                });
+            },
+        });    
+    }
+
     function loadContactElement(target) {
         new Typed('#contact-title', {
             strings: ["Contact Me"],
