@@ -41,8 +41,8 @@
         easier to maintain.
         </p>
         <p>
-        The backend was developed entirely using EF Core which has its own language, LINQ, which then translates into queries of the database language of your choosing which makes it simple to 
-        work with any database with almost no knowledge of its querying language. The entity classes and their relationships were written in LINQ and theres one particularly interesting one.    
+        The backend was developed entirely using EF Core, which provides its own query language, LINQ. LINQ queries are translated into SQL statements for the database provider of your choice, 
+        making it simple to work with different databases without needing deep knowledge of their specific query syntax. The entity classes and their relationships were written using EF Core conventions and attributes, and one particularly interesting example.    
         </p>
         <pre><code>
 namespace EFDataAccessLibrary.Models
@@ -86,5 +86,11 @@ namespace EFDataAccessLibrary.Models
     }
 }
         </code></pre>
+        <p>
+            The code above defines the <code>Apartment</code> entity, which stores information about an apartment and its tenant. As shown in the last three properties, 
+            it has relationships with other entities such as <code>ApartmentService</code>, <code>ApartmentCheque</code>, and <code>ApartmentPPM</code>. 
+            Another interesting aspect of this class is that its primary key is a **composite key**, consisting of both the apartment number and building number, 
+            which ensures uniqueness across the entire property portfolio.
+        </p>
     </body>
 </html>
