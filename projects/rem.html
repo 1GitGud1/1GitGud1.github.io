@@ -34,9 +34,57 @@
         Delivering the finished product was a huge milestone. It validated my ability to take a project from design to deployment, lead a small team, and adapt to new technologies. 
         Following this project, I was offered a full-time position as a System Engineer.
         </p>
+        <h1>Entity Framework Core & Database Design</h1>
         <p>
-            Windows Forms
-            After confering with the clients and coming up with the functional requirements, we started planning out the sprints and most importantly, the technologies we would use. 
+        When building the application, I wanted a clean separation between the business logic/UI layer and the data access layer. For this, I created a dedicated class library project that 
+        contained all Entity Framework Core models, the DbContext, and migrations. The main Windows Forms application only references this library, which keeps the architecture modular and 
+        easier to maintain.
         </p>
+        <p>
+        The backend was developed entirely using EF Core which has its own language, LINQ, which then translates into queries of the database language of your choosing which makes it simple to 
+        work with any database with almost no knowledge of its querying language. The entity classes and their relationships were written in LINQ and theres one particularly interesting one.    
+        </p>
+        <pre><code>
+namespace EFDataAccessLibrary.Models
+{
+    [PrimaryKey(nameof(BuildingNumber), nameof(ApartmentNumber))]
+    public class Apartment
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int BuildingNumber { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ApartmentNumber { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string TenantName { get; set; }
+
+        [Required]
+        [Column(TypeName = "date")]
+        public DateTime ContractStartDate { get; set; }
+
+        [Required]
+        [Column(TypeName = "date")]
+        public DateTime ContractEndDate { get; set; }
+
+        public bool Ejari { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public int Deposit { get; set; }
+
+        //Amount
+        [Required]
+        [MaxLength(50)]
+        public int Amount { get; set; }
+
+        public List&lt;ApartmentService&gt; ApartmentServices { get; set; } = new List&lt;ApartmentService&gt;();
+        public List&lt;ApartmentCheque&gt; ApartmentCheques { get; set; } = new List&lt;ApartmentCheque&gt;();
+
+        public ApartmentPPM? PPM { get; set; }
+    }
+}
+        </code></pre>
     </body>
 </html>
