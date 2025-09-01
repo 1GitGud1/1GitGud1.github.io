@@ -43,6 +43,15 @@ pre code {
     overflow-x: auto;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+    background-color: #343434;
+}
+
 .intro {
     display: flex;
     flex-direction: column;
@@ -53,10 +62,6 @@ pre code {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin: auto;
 }
 .content p {
     text-align: left;
