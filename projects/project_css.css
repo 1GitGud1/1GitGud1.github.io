@@ -53,10 +53,12 @@ pre code {
     margin-top: 10vh;
     margin-bottom: 10vh;
     padding: 100px;
+    border-radius: 10px;
     background-color: rgba(4, 15, 22, 0.95);
 }
 
 .intro {
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     text-align: center;
