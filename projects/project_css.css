@@ -19,8 +19,9 @@ h1 {
 }
 
 pre code {
-    background-color: #eee;
+    background-color: #999;
     border: 1px solid #999;
+    color: white;
     display: block;
     padding: 10px;
     overflow-x: auto;
