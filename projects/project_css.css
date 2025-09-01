@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    /*height: 100vh;*/
+    height: 90vh;
 
     background-image: 
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, #040F16 100%), 
@@ -27,6 +27,13 @@ h1 {
     color: #0ac839;
 }
 
+pre {
+    color:#88A0A8;
+    font-size: 125%;
+    /*width: 600px;*/
+    text-align: center;
+}
+
 pre code {
     background-color: #282828;
     border: 1px solid #999;
@@ -46,4 +53,8 @@ pre code {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
 }
