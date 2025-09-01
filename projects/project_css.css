@@ -20,7 +20,6 @@ p {
     color:#88A0A8;
     font-size: 125%;
     /*width: 600px;*/
-    text-align: center;
 }
 
 h1 {
@@ -49,17 +48,18 @@ pre code {
     flex-direction: column;
     align-items: center;
     width: 75%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 10vh;
     margin-bottom: 10vh;
     padding: 100px;
-    background-color: rgba(4, 15, 22, 0.9);
+    background-color: rgba(4, 15, 22, 0.95);
 }
 
 .intro {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 
 .content {
