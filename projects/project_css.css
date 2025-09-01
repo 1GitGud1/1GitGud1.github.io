@@ -1,6 +1,6 @@
 body {
     margin:0;
-    background-color: #040F16;
+    /*background-color: #040F16;*/
     font-family: monospace;
     display: flex;
     flex-direction: column;
