@@ -41,6 +41,7 @@ pre code {
     display: block;
     padding: 10px;
     overflow-x: auto;
+    text-align: left;
 }
 
 .column {
@@ -49,7 +50,10 @@ pre code {
     align-items: center;
     width: 75%;
     margin: auto;
-    background-color: rgba(4, 15, 22, 0.8);
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 100px;
+    background-color: rgba(4, 15, 22, 0.9);
 }
 
 .intro {
