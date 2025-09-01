@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    height: 90vh;
+    height: 110vh;
 
     background-image: 
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, #040F16 100%), 
@@ -57,4 +57,7 @@ pre code {
     flex-direction: column;
     width: 75%;
     margin: auto;
+}
+.content p {
+    text-align: left;
 }
