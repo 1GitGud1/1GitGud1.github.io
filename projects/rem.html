@@ -40,57 +40,107 @@
         contained all Entity Framework Core models, the DbContext, and migrations. The main Windows Forms application only references this library, which keeps the architecture modular and 
         easier to maintain.
         </p>
+        <img>
         <p>
         The backend was developed entirely using EF Core, which provides its own query language, LINQ. LINQ queries are translated into SQL statements for the database provider of your choice, 
         making it simple to work with different databases without needing deep knowledge of their specific query syntax. The entity classes and their relationships were written using EF Core conventions and attributes, and one particularly interesting example.    
         </p>
         <pre><code>
-namespace EFDataAccessLibrary.Models
-{
-    [PrimaryKey(nameof(BuildingNumber), nameof(ApartmentNumber))]
-    public class Apartment
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int BuildingNumber { get; set; }
+            namespace EFDataAccessLibrary.Models
+            {
+                [PrimaryKey(nameof(BuildingNumber), nameof(ApartmentNumber))]
+                public class Apartment
+                {
+                    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+                    public int BuildingNumber { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ApartmentNumber { get; set; }
+                    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+                    public int ApartmentNumber { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string TenantName { get; set; }
+                    [Required]
+                    [MaxLength(50)]
+                    public string TenantName { get; set; }
 
-        [Required]
-        [Column(TypeName = "date")]
-        public DateTime ContractStartDate { get; set; }
+                    [Required]
+                    [Column(TypeName = "date")]
+                    public DateTime ContractStartDate { get; set; }
 
-        [Required]
-        [Column(TypeName = "date")]
-        public DateTime ContractEndDate { get; set; }
+                    [Required]
+                    [Column(TypeName = "date")]
+                    public DateTime ContractEndDate { get; set; }
 
-        public bool Ejari { get; set; }
+                    public bool Ejari { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public int Deposit { get; set; }
+                    [Required]
+                    [MaxLength(50)]
+                    public int Deposit { get; set; }
 
-        //Amount
-        [Required]
-        [MaxLength(50)]
-        public int Amount { get; set; }
+                    //Amount
+                    [Required]
+                    [MaxLength(50)]
+                    public int Amount { get; set; }
 
-        public List&lt;ApartmentService&gt; ApartmentServices { get; set; } = new List&lt;ApartmentService&gt;();
-        public List&lt;ApartmentCheque&gt; ApartmentCheques { get; set; } = new List&lt;ApartmentCheque&gt;();
+                    public List&lt;ApartmentService&gt; ApartmentServices { get; set; } = new List&lt;ApartmentService&gt;();
+                    public List&lt;ApartmentCheque&gt; ApartmentCheques { get; set; } = new List&lt;ApartmentCheque&gt;();
 
-        public ApartmentPPM? PPM { get; set; }
-    }
-}
+                    public ApartmentPPM? PPM { get; set; }
+                }
+            }
         </code></pre>
         <p>
-            The code above defines the <code>Apartment</code> entity, which stores information about an apartment and its tenant. As shown in the last three properties, 
+            The code above defines the <code>Apartment</code> entity, which stores information about an apartment and its tenant. You can see in the last three properties that 
             it has relationships with other entities such as <code>ApartmentService</code>, <code>ApartmentCheque</code>, and <code>ApartmentPPM</code>. 
-            Another interesting aspect of this class is that its primary key is a **composite key**, consisting of both the apartment number and building number, 
+            Another interesting aspect of this class is that its primary key is a composite key, consisting of both the apartment number and building number, 
             which ensures uniqueness across the entire property portfolio.
+        </p>
+        <h1>Alerts Functionality</h1>
+        <p>
+            The application also notifies you of any pending or future tasks that need attention. On the main page, there is a dashboard that displays currently pending alerts, while the  
+            calendar that highlights the dates of due or future tasks.
+        </p>
+        <img>
+        <p>
+            This is performed using a function that searches relevant records and compares their dates againts today's (or user-selected) date using LINQ queries like so:
+        </p>
+        <pre><code>
+            public List&lt;Alert&gt; GetTodaysAlerts(DateTime targetDate)
+            {
+                var today = DateTime.Today;
+
+                var tenancyAlerts = Apartments2
+                    .Where(a =&gt; a.ContractEndDate == targetDate)
+                    .Select(a =&gt; new Alert
+                    {
+                        BuildingNumber = a.BuildingNumber,
+                        About = a.ApartmentNumber.ToString(),
+                        EventDate = a.ContractEndDate,
+                        Description = "Tenancy Deadline",
+                        EventTime = TimeSpan.Zero
+                    });
+
+
+                ...
+
+
+                return tenancyAlerts
+                .Union(chequeAlerts)
+                .Union(serviceAlerts)
+                .Union(Q1PPMAlerts)
+                .Union(Q2PPMAlerts)
+                .Union(Q3PPMAlerts)
+                .Union(Q4PPMAlerts)
+                .Union(contractDueAlerts)
+                .Union(PPMAlerts)
+                .AsEnumerable()
+                .OrderByDescending(a =&gt; a.EventDate)
+                .ThenBy(a =&gt; a.EventTime)
+                .ToList();
+            }
+        </code></pre>
+        <p>
+            At the end of the function, all the collected alerts are merged using <code>.Union()</code>. Finally, I optimized the remaining ordering functions by using <code>.AsEnumerable()</code> 
+            which forces the query to transition from server-side execution to client-side, allowing the use of <code>OrderBy()</code> with types not natively supported by SQL (such as 
+            <code>TimeSpan</code>).
         </p>
     </body>
 </html>
