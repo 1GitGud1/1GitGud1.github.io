@@ -7,15 +7,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    background-image: 
-        linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, white 100%), 
-        url('images\REM dashboard.PNG');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-
 }
 
 p {
@@ -36,4 +27,13 @@ pre code {
     display: block;
     padding: 10px;
     overflow-x: auto;
+}
+
+.title {
+    background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, white 100%), 
+        url('images\REM dashboard.PNG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
