@@ -1,3 +1,13 @@
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    height: 3rem;
+}
+
 body {
     margin: 0;
     height: 110vh;
