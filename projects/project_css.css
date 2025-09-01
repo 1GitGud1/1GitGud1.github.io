@@ -5,6 +5,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, white 100%), 
+        url('REM dashboard.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
 }
 
 p {
@@ -19,7 +28,7 @@ h1 {
 }
 
 pre code {
-    background-color: #4a4a4a;
+    background-color: #282828;
     border: 1px solid #999;
     color: white;
     display: block;
