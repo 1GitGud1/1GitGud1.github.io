@@ -8,6 +8,50 @@ header {
     height: 3rem;
 }
 
+.nav {
+    background-color: #040F16;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.nav--hidden {
+    transform: translateY(-50px);
+    box-shadow: none;
+}
+
+.contents {
+    display: flex;
+    align-items: center;
+}
+
+.contents a {
+    color: #0ac839;
+    text-decoration: none;
+    font-size: 150%;
+    margin: 15px 10px;
+}
+
+.social-media-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-media-icons a {
+    color: #0ac839;
+    font-size: 2rem;
+    margin: 0px 10px;
+}
+
 body {
     margin: 0;
     height: 110vh;
