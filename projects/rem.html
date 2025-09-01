@@ -103,39 +103,39 @@
             This is performed using a function that searches relevant records and compares their dates againts today's (or user-selected) date using LINQ queries like so:
         </p>
         <pre><code>
-            public List&lt;Alert&gt; GetTodaysAlerts(DateTime targetDate)
-            {
-                var today = DateTime.Today;
+public List&lt;Alert&gt; GetTodaysAlerts(DateTime targetDate)
+{
+    var today = DateTime.Today;
 
-                var tenancyAlerts = Apartments2
-                    .Where(a =&gt; a.ContractEndDate == targetDate)
-                    .Select(a =&gt; new Alert
-                    {
-                        BuildingNumber = a.BuildingNumber,
-                        About = a.ApartmentNumber.ToString(),
-                        EventDate = a.ContractEndDate,
-                        Description = "Tenancy Deadline",
-                        EventTime = TimeSpan.Zero
-                    });
-
-
-                ...
+    var tenancyAlerts = Apartments2
+        .Where(a =&gt; a.ContractEndDate == targetDate)
+        .Select(a =&gt; new Alert
+        {
+            BuildingNumber = a.BuildingNumber,
+            About = a.ApartmentNumber.ToString(),
+            EventDate = a.ContractEndDate,
+            Description = "Tenancy Deadline",
+            EventTime = TimeSpan.Zero
+        });
 
 
-                return tenancyAlerts
-                .Union(chequeAlerts)
-                .Union(serviceAlerts)
-                .Union(Q1PPMAlerts)
-                .Union(Q2PPMAlerts)
-                .Union(Q3PPMAlerts)
-                .Union(Q4PPMAlerts)
-                .Union(contractDueAlerts)
-                .Union(PPMAlerts)
-                .AsEnumerable()
-                .OrderByDescending(a =&gt; a.EventDate)
-                .ThenBy(a =&gt; a.EventTime)
-                .ToList();
-            }
+    ...
+
+
+    return tenancyAlerts
+    .Union(chequeAlerts)
+    .Union(serviceAlerts)
+    .Union(Q1PPMAlerts)
+    .Union(Q2PPMAlerts)
+    .Union(Q3PPMAlerts)
+    .Union(Q4PPMAlerts)
+    .Union(contractDueAlerts)
+    .Union(PPMAlerts)
+    .AsEnumerable()
+    .OrderByDescending(a =&gt; a.EventDate)
+    .ThenBy(a =&gt; a.EventTime)
+    .ToList();
+}
         </code></pre>
         <p>
             At the end of the function, all the collected alerts are merged using <code>.Union()</code>. Finally, I optimized the remaining ordering functions by using <code>.AsEnumerable()</code> 
