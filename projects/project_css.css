@@ -8,7 +8,7 @@ body {
 
     background-image: 
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, white 100%), 
-        url('REM dashboard.png');
+        url('images\REM dashboard.PNG');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,7 +19,7 @@ body {
 p {
     color:#88A0A8;
     font-size: 125%;
-    width: 600px;
+    /*width: 600px;*/
     text-align: center;
 }
 
