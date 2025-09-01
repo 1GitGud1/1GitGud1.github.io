@@ -7,45 +7,48 @@
         <link rel="stylesheet" href="project_css.css"/>
     </head>
     <body>
-        <div class="title">
+        <div class="intro">
             <h1 style="font-size:500%;">REM</h1>
+            <div>
+                <pre>
+Project Type      Professional
+Software Used     .NET
+Languages Used    C#, LINQ
+Primary Role(s)   Lead Programmer
+                </pre>
+            </div>
+            <p>REM (Real Estate Manager) is a desktop application I developed for RBA Investment FZ to streamline property and facility management operations.
+            The system centralizes key tasks such as managing tenant contracts, recording payments, scheduling services, and tracking preventive maintenance activities.
+            Its primary goal is to reduce manual effort, improve accuracy, and provide a reliable platform for day-to-day building management.
+            It was built using the .NET framework, with the front-end developed in Windows Forms, and the database implemented with Entity Framework Core and SQL Server.
+            </p>
         </div>
         <div>
-            <p>Project Type     Professional</p>
-            <p>Software Used    .NET</p>
-            <p>Languages Used   C#, LINQ</p>
-            <p>Primary Role(s)  Lead Programmer</p>
-        </div>
-        <p>REM (Real Estate Manager) is a desktop application I developed for RBA Investment FZ to streamline property and facility management operations.
-        The system centralizes key tasks such as managing tenant contracts, recording payments, scheduling services, and tracking preventive maintenance activities.
-        Its primary goal is to reduce manual effort, improve accuracy, and provide a reliable platform for day-to-day building management.
-        It was built using the .NET framework, with the front-end developed in Windows Forms, and the database implemented with Entity Framework Core and SQL Server.
-        </p>
-        <h1>Introduction</h1>
-        <p>This was my first professional project as a software developer, so I was determined to approach the development process properly. Since our team was small, we followed an Agile methodology for speed and flexibility. 
-        After years of working on personal projects, it was exciting to finally experience a structured development cycle.
-        
-        I spent the first few days researching and testing different UI frameworks, and eventually settled on Windows Forms. Although it’s dated and lacks the capabilities of modern frameworks, 
-        it was the right choice for building an internal company tool, where functionality and speed of delivery mattered more than visual style.
+            <h1>Introduction</h1>
+            <p>This was my first professional project as a software developer, so I was determined to approach the development process properly. Since our team was small, we followed an Agile methodology for speed and flexibility. 
+            After years of working on personal projects, it was exciting to finally experience a structured development cycle.
+            
+            I spent the first few days researching and testing different UI frameworks, and eventually settled on Windows Forms. Although it’s dated and lacks the capabilities of modern frameworks, 
+            it was the right choice for building an internal company tool, where functionality and speed of delivery mattered more than visual style.
 
-        For the database, I worked with Entity Framework Core. It was a new technology for me, but I was eager to learn it because of the convenience it offers for data management and migrations. 
-        The learning curve was worth it, and I came out of the project much more confident in handling real-world database challenges.                                                                                
-        
-        Delivering the finished product was a huge milestone. It validated my ability to take a project from design to deployment, lead a small team, and adapt to new technologies. 
-        Following this project, I was offered a full-time position as a System Engineer.
-        </p>
-        <h1>Entity Framework Core & Database Design</h1>
-        <p>
-        When building the application, I wanted a clean separation between the business logic/UI layer and the data access layer. For this, I created a dedicated class library project that 
-        contained all Entity Framework Core models, the DbContext, and migrations. The main Windows Forms application only references this library, which keeps the architecture modular and 
-        easier to maintain.
-        </p>
-        <img>
-        <p>
-        The backend was developed entirely using EF Core, which provides its own query language, LINQ. LINQ queries are translated into SQL statements for the database provider of your choice, 
-        making it simple to work with different databases without needing deep knowledge of their specific query syntax. The entity classes and their relationships were written using EF Core conventions and attributes, and one particularly interesting example.    
-        </p>
-        <pre><code>
+            For the database, I worked with Entity Framework Core. It was a new technology for me, but I was eager to learn it because of the convenience it offers for data management and migrations. 
+            The learning curve was worth it, and I came out of the project much more confident in handling real-world database challenges.                                                                                
+            
+            Delivering the finished product was a huge milestone. It validated my ability to take a project from design to deployment, lead a small team, and adapt to new technologies. 
+            Following this project, I was offered a full-time position as a System Engineer.
+            </p>
+            <h1>Entity Framework Core & Database Design</h1>
+            <p>
+            When building the application, I wanted a clean separation between the business logic/UI layer and the data access layer. For this, I created a dedicated class library project that 
+            contained all Entity Framework Core models, the DbContext, and migrations. The main Windows Forms application only references this library, which keeps the architecture modular and 
+            easier to maintain.
+            </p>
+            <img>
+            <p>
+            The backend was developed entirely using EF Core, which provides its own query language, LINQ. LINQ queries are translated into SQL statements for the database provider of your choice, 
+            making it simple to work with different databases without needing deep knowledge of their specific query syntax. The entity classes and their relationships were written using EF Core conventions and attributes, and one particularly interesting example.    
+            </p>
+            <pre><code>
             namespace EFDataAccessLibrary.Models
             {
                 [PrimaryKey(nameof(BuildingNumber), nameof(ApartmentNumber))]
@@ -86,23 +89,23 @@
                     public ApartmentPPM? PPM { get; set; }
                 }
             }
-        </code></pre>
-        <p>
-            The code above defines the <code>Apartment</code> entity, which stores information about an apartment and its tenant. You can see in the last three properties that 
-            it has relationships with other entities such as <code>ApartmentService</code>, <code>ApartmentCheque</code>, and <code>ApartmentPPM</code>. 
-            Another interesting aspect of this class is that its primary key is a composite key, consisting of both the apartment number and building number, 
-            which ensures uniqueness across the entire property portfolio.
-        </p>
-        <h1>Alerts Functionality</h1>
-        <p>
-            The application also notifies you of any pending or future tasks that need attention. On the main page, there is a dashboard that displays currently pending alerts, while the  
-            calendar that highlights the dates of due or future tasks.
-        </p>
-        <img>
-        <p>
-            This is performed using a function that searches relevant records and compares their dates againts today's (or user-selected) date using LINQ queries like so:
-        </p>
-        <pre><code>
+            </code></pre>
+            <p>
+                The code above defines the <code>Apartment</code> entity, which stores information about an apartment and its tenant. You can see in the last three properties that 
+                it has relationships with other entities such as <code>ApartmentService</code>, <code>ApartmentCheque</code>, and <code>ApartmentPPM</code>. 
+                Another interesting aspect of this class is that its primary key is a composite key, consisting of both the apartment number and building number, 
+                which ensures uniqueness across the entire property portfolio.
+            </p>
+            <h1>Alerts Functionality</h1>
+            <p>
+                The application also notifies you of any pending or future tasks that need attention. On the main page, there is a dashboard that displays currently pending alerts, while the  
+                calendar that highlights the dates of due or future tasks.
+            </p>
+            <img>
+            <p>
+                This is performed using a function that searches relevant records and compares their dates againts today's (or user-selected) date using LINQ queries like so:
+            </p>
+            <pre><code>
 public List&lt;Alert&gt; GetTodaysAlerts(DateTime targetDate)
 {
     var today = DateTime.Today;
@@ -136,11 +139,12 @@ public List&lt;Alert&gt; GetTodaysAlerts(DateTime targetDate)
     .ThenBy(a =&gt; a.EventTime)
     .ToList();
 }
-        </code></pre>
-        <p>
-            At the end of the function, all the collected alerts are merged using <code>.Union()</code>. Finally, I optimized the remaining ordering functions by using <code>.AsEnumerable()</code> 
-            which forces the query to transition from server-side execution to client-side, allowing the use of <code>OrderBy()</code> with types not natively supported by SQL (such as 
-            <code>TimeSpan</code>).
-        </p>
+            </code></pre>
+            <p>
+                At the end of the function, all the collected alerts are merged using <code>.Union()</code>. Finally, I optimized the remaining ordering functions by using <code>.AsEnumerable()</code> 
+                which forces the query to transition from server-side execution to client-side, allowing the use of <code>OrderBy()</code> with types not natively supported by SQL (such as 
+                <code>TimeSpan</code>).
+            </p>
+        </div>
     </body>
 </html>

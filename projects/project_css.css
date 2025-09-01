@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    height: 100vh;
+    /*height: 100vh;*/
 
     background-image: 
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, #040F16 100%), 
@@ -36,4 +36,14 @@ pre code {
     overflow-x: auto;
 }
 
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
