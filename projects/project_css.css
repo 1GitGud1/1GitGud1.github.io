@@ -2,6 +2,23 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    margin: 0;
+    height: 110vh;
+
+    background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, #040F16 100%), 
+        url('../images/REM\ dashboard.PNG');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    
+    background-color: #040F16;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+}
+
 header {
     position: relative;
     z-index: 2;
@@ -50,24 +67,6 @@ header {
     color: #0ac839;
     font-size: 2rem;
     margin: 0px 10px;
-}
-
-body {
-    margin: 0;
-    height: 110vh;
-
-    background-image: 
-        linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, #040F16 100%), 
-        url('../images/REM\ dashboard.PNG');
-    background-size: cover, cover;
-    background-position: center, center;
-    background-repeat: no-repeat, no-repeat;
-    
-    background-color: #040F16;
-    font-family: monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 p {
