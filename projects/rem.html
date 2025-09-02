@@ -30,7 +30,7 @@
             <div class="intro">
                 <h1 style="font-size:500%;">REM</h1>
                 <div style="margin:auto;">
-                    <pre>
+                    <pre style="line-height: 200%;">
 <b>Project Type</b>      Professional
 <b>Software Used</b>     .NET
 <b>Languages Used</b>    C#, LINQ
@@ -63,7 +63,9 @@
                 contained all Entity Framework Core models, the DbContext, and migrations. The main Windows Forms application only references this library, which keeps the architecture modular and 
                 easier to maintain.
                 </p>
-                <img>
+                <div class="project-img">
+                    <img src="../images/REM1.PNG" alt="REM solution explorer">
+                </div>
                 <p>
                 The backend was developed entirely using EF Core, which provides its own query language, LINQ. LINQ queries are translated into SQL statements for the database provider of your choice, 
                 making it simple to work with different databases without needing deep knowledge of their specific query syntax. The entity classes and their relationships were written using EF Core conventions and attributes, and one particularly interesting example.    
@@ -121,7 +123,7 @@ namespace EFDataAccessLibrary.Models
                     The application also notifies you of any pending or future tasks that need attention. On the main page, there is a dashboard that displays currently pending alerts, while the  
                     calendar that highlights the dates of due or future tasks.
                 </p>
-                <img>
+                <img src="..images/REM2.PNG" alt="Calendar picture">
                 <p>
                     This is performed using a function that searches relevant records and compares their dates againts today's (or user-selected) date using LINQ queries like so:
                 </p>
