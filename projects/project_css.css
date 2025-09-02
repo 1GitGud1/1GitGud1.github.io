@@ -111,13 +111,14 @@ pre code {
 }
 
 .intro {
-    margin-top: 0px;
+    margin-top: -100px;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
 .content {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     text-align: left;
