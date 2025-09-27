@@ -201,7 +201,8 @@ public class GoblinStateManager : MonoBehaviour, IDamageable
 
     public bool GroundCheck()
     {
-        // The GroundCheck has a cooldown so that the raycast is not performed immediately after jump function is called, otherwise jump function is called multiple times in a single instance of a jump
+        // The GroundCheck has a cooldown so that the raycast is not performed immediately after jump function is called, 
+        // otherwise jump function is called multiple times in a single instance of a jump
         if (jumpCooldown >= 0.3f)
         {
             RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, Vector2.down, 0.15f, groundLayerMask);
