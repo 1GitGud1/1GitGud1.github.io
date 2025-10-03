@@ -4,7 +4,7 @@ html {
 
 body {
     margin: 0;
-    height: 110vh;
+    min-height: 110vh;
     
     background-color: #040F16;
     font-family: monospace;
