@@ -1,11 +1,10 @@
 html {
     scroll-behavior: smooth;
-    height: 100%;
 }
 
 body {
     margin: 0;
-    
+    height: 110vh;
     
     background-color: #040F16;
     font-family: monospace;
