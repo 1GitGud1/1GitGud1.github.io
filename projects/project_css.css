@@ -122,6 +122,14 @@ pre code {
     min-width: 40%;
 }
 
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 10px;
+}
+
 .videoWrapper iframe{
     position: absolute;
     top: 0;
