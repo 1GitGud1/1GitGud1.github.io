@@ -275,6 +275,14 @@ public class GoblinStateManager : MonoBehaviour, IDamageable
     }
 }
                 </code></pre>
+                <h1>Pathfinding</h1>
+                <p>I've already made a Devlog video explaining the pathfinding algorithm and uploaded it to YouTube, so I'll give a quick rundown on here.</p>
+                <div class="videoWrapper">
+                    <iframe src="https://www.youtube.com/embed/onKFQsRKjNs" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+                <p>In an nutshell, The algorithm starts by scanning the map and generating traversable nodes that are above walkable ground (duh), information about neighbouring nodes and edge nodes is also 
+                    calculated in this process. So now when an NPC is chasing a player, the npc uses A* pathfinding algorithm to find the most optimal route to the node that the player was 
+                    last seen on.</p>
             </div>
         </div>
     </body>

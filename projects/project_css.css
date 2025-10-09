@@ -121,3 +121,8 @@ pre code {
     max-width: 80%;
     min-width: 40%;
 }
+
+.videoWrapper {
+    width: 100%;
+    height: 100%;
+}
