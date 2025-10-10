@@ -283,6 +283,134 @@ public class GoblinStateManager : MonoBehaviour, IDamageable
                 <p>In an nutshell, The algorithm starts by scanning the map and generating traversable nodes that are above walkable ground (duh), information about neighbouring nodes and edge nodes is also 
                     calculated in this process. So now when an NPC is chasing a player, the npc uses A* pathfinding algorithm to find the most optimal route to the node that the player was 
                     last seen on.</p>
+                <h1>Inventory System</h1>
+                <p>RPG Dungeon features a wide variety of types of items that have their own uses and functions, such as consumables, weapons, miscellaneous and so on. For this reason, I developed 
+                    an item scriptable object (SO) code to make the process of adding a new item to the game seemless. There is a default item SO script if an item doesn't fall into any particular 
+                    category, and there are type specific SO scripts which include functions for that specific item type. Below is the example of the default item SO script.</p>
+                <pre><code>
+[CreateAssetMenu(fileName = "NewItem", menuName = "Items/Item")]
+
+public class ItemSO : ScriptableObject
+{
+    [field: SerializeField]
+    public bool IsStackable {get; set;}
+
+    public int ID => GetInstanceID();
+
+    [field: SerializeField]
+    public int MaxStackSize {get; set;} = 1;
+
+    [field: SerializeField]
+    public string Name {get; set;}
+
+    [field: TextArea]
+    [field: SerializeField]
+    public string Description {get; set;}
+
+    [field: SerializeField]
+    public Sprite ItemSprite {get; set;} // Sprite used in the inventory UI
+
+    [field: SerializeField]
+    public GameObject ItemSpriteObject {get; set;} 
+
+    [field: SerializeField]
+    public GameObject item; //Game object on the world map
+
+    [field: SerializeField]
+    public ItemType itemType; // An enum that defines the item's type
+
+    public virtual void Use()
+    {
+        // This method can be overridden by child classes to define item-specific behavior
+        Debug.Log("Using item: " + Name);
+    }
+
+    public virtual void Equip()
+    {
+        Debug.Log("Equiping item: " + Name);
+    }
+
+    public virtual void Unequip()
+    {
+        Debug.Log("Unequiping item: " + Name);
+    }
+
+    public void DropItem(Vector2 playerPosition)
+    {
+        //instantiates the specified item game object at the player position
+        Instantiate(item, playerPosition, Quaternion.identity);
+    }
+}
+
+public enum ItemType
+{
+    Weapon,
+    Armor,
+    Accessory,
+    Consumable,
+    // Add more types as needed
+}
+                </code></pre>
+                <p>The main inventory code is designed to be a list of "slots", which are game objects occupying each slot of the inventory that contain information about the item in that slot and 
+                    functions which are specific to slots, like displaying the sprite of the item on the UI or placing an "Equipped" marker when the item is equipped (shocker). Additionally, the 
+                    inventory script holds a list of item scriptable objects. The reason for this second list of items is because the first list uses functions that interact with the UI, whereas 
+                    the list of scriptable objects contains functions that are relevant to the game mechanics and the character, like changing of the stats when armour is equipped.</p>
+                <pre><code>
+public class InventoryScript : MonoBehaviour
+{
+    public bool[] isFull;
+    public GameObject[] slots;
+    public ItemSO[] SOslots;
+
+    private Image selector;
+    public int lastEquippedSlot;
+    private int lastSlot;
+    public bool weaponEquipped;
+
+    void Start ()
+    {
+        selector = slots[0].GetComponent<Image>();
+        selector.color = new Color(selector.color.r, selector.color.g, selector.color.b, 0.4f);
+        lastEquippedSlot = 34;
+        lastSlot = 0;
+        weaponEquipped = false;
+    }
+
+    public void UpdateSelectedSlot(int slot)
+    {
+        selector = slots[slot].GetComponent<Image>();
+        selector.color = new Color(selector.color.r, selector.color.g, selector.color.b, 0.4f);
+        selector = slots[lastSlot].GetComponent<Image>();
+        selector.color = new Color(selector.color.r, selector.color.g, selector.color.b, 0f);
+        lastSlot = slot;
+    }
+
+    public void EquipWeapon(int slot)
+    {   
+        //slots[lastEquippedSlot].GetComponent<SlotScript>().RemoveEquipMarker();
+        SOslots[slot].Equip();
+        slots[slot].GetComponent<SlotScript>().PlaceEquipMarker();
+        weaponEquipped = true;
+        lastEquippedSlot = slot;
+    }
+
+    public void SwitchWeapon(int slot){
+        SOslots[lastEquippedSlot].Unequip();
+        slots[lastEquippedSlot].GetComponent<SlotScript>().RemoveEquipMarker();
+        SOslots[slot].Equip();
+        slots[slot].GetComponent<SlotScript>().PlaceEquipMarker();
+        //weaponEquipped = true;
+        lastEquippedSlot = slot;
+    }
+
+    public void UnequipWeapon(int slot)
+    {
+        slots[slot].GetComponent<SlotScript>().RemoveEquipMarker();
+        SOslots[slot].Unequip();
+        weaponEquipped = false;
+    }
+}
+                </code></pre>
             </div>
         </div>
     </body>
